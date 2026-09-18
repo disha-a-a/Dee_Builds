@@ -308,72 +308,106 @@ h3 {
   isolation: isolate;
 }
 
+.hero-visual.reveal {
+  opacity: 1;
+  transform: none;
+}
+
 .hero-visual::before {
   content: "";
   position: absolute;
-  inset: 8% 7% 10%;
+  width: min(500px, 86vw);
+  aspect-ratio: 1;
   z-index: -2;
-  border: 1px solid rgba(255, 232, 245, 0.12);
-  border-radius: 42px;
+  border-radius: 50%;
   background:
-    radial-gradient(circle at 52% 30%, rgba(255, 170, 210, 0.24), transparent 0 34%),
-    radial-gradient(circle at 62% 64%, rgba(199, 168, 255, 0.18), transparent 0 42%),
-    linear-gradient(145deg, rgba(255, 247, 251, 0.06), rgba(255, 247, 251, 0.018));
+    radial-gradient(circle at 50% 34%, rgba(255, 170, 210, 0.28), transparent 0 34%),
+    radial-gradient(circle at 50% 66%, rgba(199, 168, 255, 0.2), transparent 0 44%),
+    radial-gradient(circle at 50% 78%, rgba(174, 224, 255, 0.1), transparent 0 34%),
+    linear-gradient(145deg, rgba(255, 247, 251, 0.045), rgba(255, 247, 251, 0.012));
   box-shadow:
-    0 28px 72px rgba(11, 6, 18, 0.3),
-    inset 0 0 76px rgba(255, 247, 251, 0.045);
-  backdrop-filter: blur(20px);
+    0 28px 72px rgba(11, 6, 18, 0.24),
+    inset 0 0 64px rgba(255, 247, 251, 0.035);
+  filter: blur(0.2px);
 }
 
 .hero-visual::after {
   content: "";
   position: absolute;
-  inset: 23% 11% 18%;
+  width: min(440px, 76vw);
+  aspect-ratio: 1;
   z-index: -1;
-  border-radius: 999px;
+  border-radius: 50%;
   background:
-    radial-gradient(circle at 50% 50%, rgba(255, 170, 210, 0.24), transparent 0 50%),
-    radial-gradient(circle at 50% 50%, rgba(174, 224, 255, 0.14), transparent 0 68%);
-  filter: blur(26px);
-  opacity: 0.76;
+    radial-gradient(circle at 50% 44%, rgba(255, 170, 210, 0.26), transparent 0 48%),
+    radial-gradient(circle at 50% 58%, rgba(174, 224, 255, 0.16), transparent 0 66%);
+  filter: blur(30px);
+  opacity: 0.72;
 }
 
 .portrait-orbit {
   position: relative;
-  width: min(340px, 72vw);
-  aspect-ratio: 0.82;
-  border-radius: 30px;
-  padding: 10px;
+  width: min(440px, 76vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 0;
   background:
-    linear-gradient(145deg, rgba(255, 247, 251, 0.2), rgba(255, 247, 251, 0.055)),
-    rgba(42, 27, 58, 0.22);
+    radial-gradient(circle at 50% 30%, rgba(255, 170, 210, 0.1), transparent 46%),
+    linear-gradient(155deg, rgba(82, 58, 106, 0.2), rgba(22, 11, 35, 0.08));
   box-shadow:
-    0 0 42px rgba(255, 170, 210, 0.18),
-    0 22px 58px rgba(4, 2, 10, 0.38);
+    0 30px 74px rgba(4, 2, 10, 0.18),
+    inset 0 0 46px rgba(255, 247, 251, 0.04);
   transform: translateY(-18px);
   overflow: hidden;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.portrait-orbit::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(255, 170, 210, 0.18), transparent 0 40%),
+    radial-gradient(circle at 50% 70%, rgba(95, 71, 120, 0.38), transparent 0 58%),
+    radial-gradient(circle at 50% 92%, rgba(17, 8, 28, 0.76), transparent 0 44%);
+  filter: blur(18px);
+  mix-blend-mode: normal;
+  pointer-events: none;
 }
 
 .portrait-orbit img {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  bottom: -1%;
   z-index: 2;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  border-radius: inherit;
-  filter: saturate(0.94) contrast(1.04) brightness(0.98) hue-rotate(-3deg);
+  width: auto;
+  height: 108%;
+  max-width: none;
+  object-fit: contain;
+  object-position: center bottom;
+  border: 0;
+  border-radius: 0;
+  filter: saturate(0.98) contrast(1.04) brightness(1.04) hue-rotate(-3deg);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 87%, rgba(0, 0, 0, 0.74) 94%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 87%, rgba(0, 0, 0, 0.74) 94%, transparent 100%);
   mix-blend-mode: normal;
   opacity: 1;
+  transform: translateX(-50%);
+  transform-origin: center bottom;
 }
 
 .orbit-ring {
   position: absolute;
-  inset: -18px;
-  border: 1px solid rgba(255, 232, 245, 0.12);
-  border-radius: 36px;
-  animation: slow-spin 18s linear infinite;
-  opacity: 0.55;
+  inset: -3%;
+  z-index: -2;
+  border: 1px solid rgba(255, 232, 245, 0.14);
+  border-radius: 50%;
+  animation: slow-spin 24s linear infinite;
+  opacity: 0.28;
 }
 
 .orbit-ring::before,
@@ -400,109 +434,117 @@ h3 {
 }
 
 .hero-plaque {
-  position: absolute;
-  z-index: 4;
-  right: 1%;
-  bottom: 4%;
-  width: min(280px, 72vw);
-  padding: 14px 16px;
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  background:
-    linear-gradient(145deg, rgba(255, 247, 251, 0.18), rgba(255, 247, 251, 0.075)),
-    rgba(42, 27, 58, 0.76);
-  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(18px);
+  display: none;
 }
 
 .hero-plaque span {
   display: block;
   color: var(--pink);
-  font-size: 0.84rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 
 .hero-plaque strong {
   display: block;
-  margin-top: 7px;
+  margin-top: 5px;
   font-family: "Roboto Slab", Georgia, serif;
-  font-size: 1.18rem;
+  font-size: 0.96rem;
   line-height: 1.15;
 }
 
 .hero-plaque p {
-  margin: 10px 0 0;
+  display: none;
+  margin: 0;
   color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 1.42;
+  font-size: 0.8rem;
+  line-height: 1.38;
 }
 
 .storyline {
   --trail-progress: 0px;
   position: absolute;
-  left: max(14px, calc((100vw - 1120px) / 2 - 74px));
+  left: max(18px, calc((100vw - 1120px) / 2 - 70px));
   top: 92vh;
   bottom: 120px;
-  width: 52px;
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255, 232, 245, 0.28) 0 9px,
-      transparent 9px 20px
-    );
-  background-position: 20px 0;
-  background-repeat: repeat-y;
-  background-size: 3px 20px;
-  opacity: 0.95;
+  z-index: 2;
+  width: 42px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 247, 251, 0.04) 8%,
+    rgba(255, 170, 210, 0.05) 45%,
+    rgba(174, 224, 255, 0.04) 88%,
+    transparent
+  );
   pointer-events: none;
 }
 
-.storyline::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 20px;
-  width: 3px;
-  height: var(--trail-progress);
-  border-radius: 999px;
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255, 170, 210, 0.95) 0 10px,
-      rgba(255, 198, 168, 0.9) 10px 16px,
-      transparent 16px 24px
-    );
-  filter: drop-shadow(0 0 12px rgba(255, 170, 210, 0.56));
-}
-
+.storyline::before,
 .storyline::after {
   content: "";
   position: absolute;
-  top: var(--trail-progress);
-  left: 13px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #fff7fb 0 22%, var(--pink) 23% 58%, transparent 60%);
+}
+
+.storyline::before {
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 2.5px;
+  border-radius: 999px;
+  background:
+    linear-gradient(to bottom, transparent, rgba(255, 247, 251, 0.48) 8%, rgba(255, 247, 251, 0.34) 88%, transparent);
   box-shadow:
-    0 0 22px rgba(255, 170, 210, 0.72),
-    0 0 44px rgba(199, 168, 255, 0.28);
-  transform: translateY(-8px);
+    0 0 12px rgba(255, 170, 210, 0.18);
+}
+
+.storyline::after {
+  top: 0;
+  left: 20px;
+  width: 2.5px;
+  height: var(--trail-progress);
+  border-radius: 999px;
+  background: linear-gradient(to bottom, var(--pink), var(--peach), var(--blue));
+  box-shadow:
+    0 0 12px rgba(255, 170, 210, 0.48),
+    0 0 24px rgba(199, 168, 255, 0.16);
+  transform: translateX(-50%);
+  transition: height 180ms ease-out;
+  will-change: height;
 }
 
 .storyline span {
   position: absolute;
-  left: 21px;
-  width: 15px;
-  height: 15px;
-  border: 1px solid rgba(255, 246, 251, 0.72);
+  left: 20px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid rgba(255, 246, 251, 0.62);
   border-radius: 50%;
   background:
-    radial-gradient(circle, #fff7fb 0 20%, var(--pink) 22% 54%, rgba(255, 170, 210, 0.16) 56%);
-  box-shadow: 0 0 18px rgba(255, 170, 210, 0.62);
-  transform: translateX(-50%);
+    radial-gradient(circle, #fff7fb 0 18%, var(--pink) 20% 52%, rgba(255, 170, 210, 0.14) 56%);
+  box-shadow:
+    0 0 0 5px rgba(27, 17, 41, 0.78),
+    0 0 12px rgba(255, 170, 210, 0.34);
+  transform: translate(-50%, -50%);
+}
+
+.storyline .trail-cursor {
+  position: absolute;
+  top: var(--trail-progress);
+  left: 20px;
+  width: 15px;
+  height: 15px;
+  border: 1px solid rgba(255, 247, 251, 0.76);
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff7fb 0 22%, var(--peach) 24% 54%, rgba(255, 170, 210, 0.12) 58%);
+  box-shadow:
+    0 0 0 5px rgba(255, 170, 210, 0.08),
+    0 0 14px rgba(255, 170, 210, 0.45);
+  transform: translate(-50%, -50%);
+  transition: top 180ms ease-out;
+  will-change: top;
 }
 
 .storyline span:nth-child(1) {
@@ -644,6 +686,41 @@ h3 {
   font-weight: 700;
 }
 
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.project-links a,
+.profile-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--text);
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 170, 210, 0.42);
+  text-underline-offset: 6px;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.project-links a:hover,
+.profile-links a:hover {
+  color: var(--pink);
+  text-decoration-color: currentColor;
+}
+
+.project-links span {
+  color: var(--pink);
+  font-size: 1rem;
+}
+
 .stack-section,
 .proof-section,
 .contact-section {
@@ -711,6 +788,12 @@ h3 {
   max-width: 850px;
 }
 
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 26px;
+}
+
 .site-footer {
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
@@ -769,21 +852,23 @@ h3 {
 
   .storyline {
     left: 4px;
-    width: 28px;
-    opacity: 0.58;
-    background-position: 11px 0;
+    width: 30px;
+    opacity: 0.62;
   }
 
   .storyline::before {
-    left: 11px;
+    left: 14px;
+    width: 2.5px;
   }
 
   .storyline::after {
-    left: 4px;
+    left: 14px;
+    width: 2.5px;
   }
 
-  .storyline span {
-    left: 12px;
+  .storyline span,
+  .storyline .trail-cursor {
+    left: 14px;
   }
 
   .stack-grid,
@@ -837,10 +922,11 @@ h3 {
   }
 
   .hero-plaque {
-    right: 6px;
-    bottom: -10px;
-    width: min(300px, calc(100vw - 44px));
-    padding: 16px;
+    left: 50%;
+    right: auto;
+    bottom: 18px;
+    width: min(280px, calc(100vw - 58px));
+    padding: 11px 14px;
   }
 
   .project-card {

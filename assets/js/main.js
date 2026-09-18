@@ -16,6 +16,14 @@ function renderProjects() {
             <div class="tag-row">
               ${project.tags.map((tag) => `<em>${tag}</em>`).join("")}
             </div>
+            <div class="project-links">
+              ${project.links
+                .map(
+                  (link) =>
+                    `<a href="${link.url}" target="_blank" rel="noreferrer" aria-label="${link.label} for ${project.name}">${link.label}<span aria-hidden="true">&#8599;</span></a>`
+                )
+                .join("")}
+            </div>
           </div>
         </article>
       `
