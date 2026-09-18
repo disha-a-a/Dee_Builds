@@ -301,35 +301,53 @@ h3 {
   min-height: 580px;
   display: grid;
   place-items: center;
+  isolation: isolate;
 }
 
 .hero-visual::before {
   content: "";
   position: absolute;
-  inset: 3% -4% 0%;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 42px;
+  inset: 5% 4% 6%;
+  z-index: -2;
+  border: 1px solid rgba(255, 232, 245, 0.16);
+  border-radius: 50%;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.025)),
-    radial-gradient(circle at 50% 28%, rgba(255, 170, 210, 0.22), transparent 43%),
-    linear-gradient(180deg, rgba(174, 224, 255, 0.075), transparent 62%);
-  box-shadow: var(--shadow), inset 0 0 80px rgba(255, 255, 255, 0.04);
+    radial-gradient(circle at 42% 42%, rgba(255, 170, 210, 0.54), transparent 0 35%),
+    radial-gradient(circle at 64% 38%, rgba(199, 168, 255, 0.36), transparent 0 48%),
+    radial-gradient(circle at 50% 54%, rgba(255, 198, 168, 0.16), transparent 0 62%);
+  box-shadow:
+    0 0 92px rgba(255, 170, 210, 0.22),
+    inset 0 0 76px rgba(255, 247, 251, 0.045);
   backdrop-filter: blur(20px);
+}
+
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: 18% 1% 10% 8%;
+  z-index: -1;
+  border-radius: 50%;
+  background:
+    linear-gradient(90deg, transparent 0 19%, rgba(255, 247, 251, 0.18) 20%, transparent 21% 54%, rgba(255, 247, 251, 0.12) 55%, transparent 56%),
+    linear-gradient(0deg, transparent 0 31%, rgba(255, 247, 251, 0.14) 32%, transparent 33% 69%, rgba(255, 247, 251, 0.1) 70%, transparent 71%);
+  opacity: 0.62;
+  mask-image: radial-gradient(circle, #000 0 62%, transparent 70%);
 }
 
 .portrait-orbit {
   position: relative;
-  width: min(330px, 72vw);
-  aspect-ratio: 1;
-  border-radius: 34px;
-  padding: 14px;
+  width: min(350px, 72vw);
+  aspect-ratio: 0.82;
+  border-radius: 46% 54% 42% 58% / 38% 42% 58% 62%;
+  padding: 12px;
   background:
-    linear-gradient(145deg, rgba(255, 170, 210, 0.28), rgba(199, 168, 255, 0.18)),
+    linear-gradient(145deg, rgba(255, 170, 210, 0.26), rgba(199, 168, 255, 0.2)),
     rgba(255, 255, 255, 0.05);
   box-shadow:
-    0 0 66px rgba(255, 170, 210, 0.28),
+    0 0 74px rgba(255, 170, 210, 0.3),
     0 22px 65px rgba(4, 2, 10, 0.5);
-  transform: rotate(-2deg);
+  transform: rotate(-1deg) translateY(-12px);
+  overflow: hidden;
 }
 
 .portrait-orbit img {
@@ -340,16 +358,16 @@ h3 {
   object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: inherit;
-  filter: saturate(0.78) contrast(1.05) brightness(0.9);
-  mix-blend-mode: luminosity;
-  opacity: 0.88;
+  filter: saturate(0.86) contrast(1.05) brightness(0.92) hue-rotate(-4deg);
+  mix-blend-mode: soft-light;
+  opacity: 0.96;
 }
 
 .orbit-ring {
   position: absolute;
-  inset: -42px;
-  border: 1px solid rgba(255, 139, 203, 0.22);
-  border-radius: 44px;
+  inset: -48px -70px;
+  border: 1px solid rgba(255, 232, 245, 0.2);
+  border-radius: 50%;
   animation: slow-spin 18s linear infinite;
 }
 
@@ -379,16 +397,16 @@ h3 {
 .hero-plaque {
   position: absolute;
   z-index: 4;
-  right: -2%;
-  bottom: 11%;
-  width: min(320px, 76vw);
-  padding: 20px;
+  right: 0%;
+  bottom: 14%;
+  width: min(280px, 72vw);
+  padding: 18px;
   border: 1px solid var(--line);
-  border-radius: 22px;
+  border-radius: 24px;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.055)),
-    rgba(16, 8, 30, 0.68);
-  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.3);
+    linear-gradient(145deg, rgba(255, 247, 251, 0.16), rgba(255, 247, 251, 0.06)),
+    rgba(42, 27, 58, 0.62);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.22);
   backdrop-filter: blur(18px);
 }
 
