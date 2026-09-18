@@ -419,13 +419,12 @@ h3 {
 .storyline {
   --trail-progress: 0%;
   position: absolute;
-  left: 50%;
-  top: 88vh;
-  width: 2px;
-  height: 2520px;
-  transform: translateX(-50%);
-  background: linear-gradient(to bottom, rgba(255, 170, 210, 0.48), rgba(199, 168, 255, 0.22), transparent);
-  opacity: 0.36;
+  left: max(22px, calc((100vw - 1120px) / 2 + 22px));
+  top: 104vh;
+  width: 46px;
+  height: 2420px;
+  background: none;
+  opacity: 0.78;
   pointer-events: none;
 }
 
@@ -433,22 +432,44 @@ h3 {
   content: "";
   position: absolute;
   top: 0;
-  left: -1px;
-  width: 4px;
+  left: 20px;
+  width: 2px;
   height: var(--trail-progress);
   border-radius: 999px;
-  background: linear-gradient(to bottom, var(--pink), var(--peach), var(--blue));
-  box-shadow: 0 0 18px rgba(255, 170, 210, 0.44);
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 170, 210, 0.72) 0 10px,
+      transparent 10px 22px
+    );
+  filter: drop-shadow(0 0 9px rgba(255, 170, 210, 0.34));
+}
+
+.storyline::after {
+  content: "";
+  position: absolute;
+  top: var(--trail-progress);
+  left: 13px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff7fb 0 22%, var(--pink) 23% 58%, transparent 60%);
+  box-shadow:
+    0 0 18px rgba(255, 170, 210, 0.48),
+    0 0 34px rgba(199, 168, 255, 0.18);
+  transform: translateY(-8px);
 }
 
 .storyline span {
   position: absolute;
-  left: 50%;
-  width: 10px;
-  height: 10px;
+  left: 21px;
+  width: 13px;
+  height: 13px;
+  border: 1px solid rgba(255, 246, 251, 0.72);
   border-radius: 50%;
-  background: var(--pink);
-  box-shadow: 0 0 16px rgba(255, 170, 210, 0.6);
+  background:
+    radial-gradient(circle, #fff7fb 0 20%, var(--pink) 22% 54%, rgba(255, 170, 210, 0.16) 56%);
+  box-shadow: 0 0 14px rgba(255, 170, 210, 0.5);
   transform: translateX(-50%);
 }
 
@@ -459,6 +480,8 @@ h3 {
 .storyline span:nth-child(2) {
   top: 37%;
   background: var(--violet);
+  background:
+    radial-gradient(circle, #fff7fb 0 20%, var(--violet) 22% 54%, rgba(199, 168, 255, 0.16) 56%);
 }
 
 .storyline span:nth-child(3) {
@@ -468,6 +491,8 @@ h3 {
 .storyline span:nth-child(4) {
   top: 87%;
   background: var(--blue);
+  background:
+    radial-gradient(circle, #fff7fb 0 20%, var(--blue) 22% 54%, rgba(174, 224, 255, 0.16) 56%);
 }
 
 .split-intro {
@@ -706,7 +731,21 @@ h3 {
   }
 
   .storyline {
-    left: 22px;
+    left: 12px;
+    width: 28px;
+    opacity: 0.48;
+  }
+
+  .storyline::before {
+    left: 13px;
+  }
+
+  .storyline::after {
+    left: 6px;
+  }
+
+  .storyline span {
+    left: 14px;
   }
 
   .stack-grid,
