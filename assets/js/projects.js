@@ -12,7 +12,7 @@ window.deeProjects = [
   {
     name: "SchemaLenz",
     label: "Database schema analysis",
-    image: "./assets/img/schemalenz-normalization.png",
+    image: "./assets/img/schemalenz-normalization.png?v=20260918",
     alt: "SchemaLenz normalization decomposition flow visualizer",
     description:
       "A full-stack tool that normalizes schemas, computes closures and candidate keys, and visualizes B+ trees plus query plans.",
@@ -22,7 +22,7 @@ window.deeProjects = [
   {
     name: "RAHAT",
     label: "Disaster evacuation orchestration",
-    image: "./assets/img/rahat-dashboard.png",
+    image: "./assets/img/rahat-dashboard.png?v=20260918",
     alt: "RAHAT disaster evacuation platform interface with Bengaluru radar map",
     description:
       "A multi-agent evacuation system that reroutes paths on a Bengaluru road network when flood-simulated edges become unsafe.",

@@ -312,8 +312,8 @@ h3 {
   border: 1px solid rgba(255, 232, 245, 0.16);
   border-radius: 50%;
   background:
-    radial-gradient(circle at 42% 42%, rgba(255, 170, 210, 0.54), transparent 0 35%),
-    radial-gradient(circle at 64% 38%, rgba(199, 168, 255, 0.36), transparent 0 48%),
+    radial-gradient(circle at 42% 42%, rgba(255, 170, 210, 0.38), transparent 0 35%),
+    radial-gradient(circle at 64% 38%, rgba(199, 168, 255, 0.26), transparent 0 48%),
     radial-gradient(circle at 50% 54%, rgba(255, 198, 168, 0.16), transparent 0 62%);
   box-shadow:
     0 0 92px rgba(255, 170, 210, 0.22),
@@ -339,12 +339,12 @@ h3 {
   width: min(350px, 72vw);
   aspect-ratio: 0.82;
   border-radius: 46% 54% 42% 58% / 38% 42% 58% 62%;
-  padding: 12px;
+  padding: 10px;
   background:
     linear-gradient(145deg, rgba(255, 170, 210, 0.26), rgba(199, 168, 255, 0.2)),
     rgba(255, 255, 255, 0.05);
   box-shadow:
-    0 0 74px rgba(255, 170, 210, 0.3),
+    0 0 56px rgba(255, 170, 210, 0.22),
     0 22px 65px rgba(4, 2, 10, 0.5);
   transform: rotate(-1deg) translateY(-12px);
   overflow: hidden;
@@ -358,9 +358,9 @@ h3 {
   object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: inherit;
-  filter: saturate(0.86) contrast(1.05) brightness(0.92) hue-rotate(-4deg);
-  mix-blend-mode: soft-light;
-  opacity: 0.96;
+  filter: saturate(0.94) contrast(1.04) brightness(0.98) hue-rotate(-3deg);
+  mix-blend-mode: normal;
+  opacity: 1;
 }
 
 .orbit-ring {
@@ -397,15 +397,15 @@ h3 {
 .hero-plaque {
   position: absolute;
   z-index: 4;
-  right: 0%;
-  bottom: 14%;
-  width: min(280px, 72vw);
-  padding: 18px;
+  right: -2%;
+  bottom: 2%;
+  width: min(300px, 72vw);
+  padding: 16px 18px;
   border: 1px solid var(--line);
   border-radius: 24px;
   background:
-    linear-gradient(145deg, rgba(255, 247, 251, 0.16), rgba(255, 247, 251, 0.06)),
-    rgba(42, 27, 58, 0.62);
+    linear-gradient(145deg, rgba(255, 247, 251, 0.18), rgba(255, 247, 251, 0.075)),
+    rgba(42, 27, 58, 0.76);
   box-shadow: 0 18px 46px rgba(0, 0, 0, 0.22);
   backdrop-filter: blur(18px);
 }
@@ -423,21 +423,21 @@ h3 {
   display: block;
   margin-top: 7px;
   font-family: "Roboto Slab", Georgia, serif;
-  font-size: 1.42rem;
+  font-size: 1.28rem;
   line-height: 1.15;
 }
 
 .hero-plaque p {
-  margin: 12px 0 0;
+  margin: 10px 0 0;
   color: var(--muted);
-  font-size: 0.98rem;
-  line-height: 1.45;
+  font-size: 0.92rem;
+  line-height: 1.42;
 }
 
 .storyline {
   --trail-progress: 0%;
   position: absolute;
-  left: max(22px, calc((100vw - 1120px) / 2 + 22px));
+  left: max(14px, calc((100vw - 1120px) / 2 - 74px));
   top: 104vh;
   width: 46px;
   height: 2420px;
@@ -749,21 +749,21 @@ h3 {
   }
 
   .storyline {
-    left: 12px;
-    width: 28px;
-    opacity: 0.48;
+    left: 4px;
+    width: 24px;
+    opacity: 0.38;
   }
 
   .storyline::before {
-    left: 13px;
+    left: 11px;
   }
 
   .storyline::after {
-    left: 6px;
+    left: 4px;
   }
 
   .storyline span {
-    left: 14px;
+    left: 12px;
   }
 
   .stack-grid,
@@ -817,8 +817,8 @@ h3 {
   }
 
   .hero-plaque {
-    right: 10px;
-    bottom: 0;
+    right: 6px;
+    bottom: -10px;
     width: min(300px, calc(100vw - 44px));
     padding: 16px;
   }
