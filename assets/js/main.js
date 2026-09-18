@@ -43,15 +43,19 @@ function initSparkleTrail() {
   const trail = document.querySelector(".storyline");
   if (!trail) return;
 
-  window.addEventListener(
-    "scroll",
-    () => {
-      const progress =
-        window.scrollY / Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
-      trail.style.setProperty("--trail-progress", `${Math.min(progress * 100, 100)}%`);
-    },
-    { passive: true }
-  );
+  const updateTrail = () => {
+    const rect = trail.getBoundingClientRect();
+    const railTop = window.scrollY + rect.top;
+    const railHeight = trail.offsetHeight;
+    const cursor = window.scrollY + window.innerHeight * 0.58;
+    const progress = Math.max(0, Math.min(1, (cursor - railTop) / Math.max(railHeight, 1)));
+
+    trail.style.setProperty("--trail-progress", `${Math.round(progress * railHeight)}px`);
+  };
+
+  updateTrail();
+  window.addEventListener("scroll", updateTrail, { passive: true });
+  window.addEventListener("resize", updateTrail);
 }
 
 renderProjects();
