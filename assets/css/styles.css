@@ -294,22 +294,6 @@ h3 {
   box-shadow: 0 18px 44px rgba(156, 108, 255, 0.18);
 }
 
-.signal-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.signal-row span {
-  padding: 8px 12px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.045);
-  color: var(--muted);
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
 .hero-visual {
   position: relative;
   min-height: 580px;
@@ -320,26 +304,30 @@ h3 {
 .hero-visual::before {
   content: "";
   position: absolute;
-  inset: 8% -6% 2%;
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  border-radius: 44% 56% 45% 55% / 48% 44% 56% 52%;
+  inset: 3% -4% 0%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 42px;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02)),
-    radial-gradient(circle at 50% 28%, rgba(255, 139, 203, 0.35), transparent 44%);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.025)),
+    radial-gradient(circle at 50% 28%, rgba(255, 139, 203, 0.22), transparent 43%),
+    linear-gradient(180deg, rgba(121, 199, 255, 0.07), transparent 62%);
   box-shadow: var(--shadow), inset 0 0 80px rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(20px);
 }
 
 .portrait-orbit {
   position: relative;
-  width: min(360px, 78vw);
+  width: min(330px, 72vw);
   aspect-ratio: 1;
-  border-radius: 50%;
-  padding: 16px;
-  background: linear-gradient(145deg, rgba(255, 139, 203, 0.34), rgba(156, 108, 255, 0.22));
+  border-radius: 34px;
+  padding: 14px;
+  background:
+    linear-gradient(145deg, rgba(255, 139, 203, 0.28), rgba(156, 108, 255, 0.2)),
+    rgba(255, 255, 255, 0.05);
   box-shadow:
-    0 0 80px rgba(255, 139, 203, 0.36),
+    0 0 70px rgba(255, 139, 203, 0.3),
     0 22px 65px rgba(4, 2, 10, 0.5);
+  transform: rotate(-2deg);
 }
 
 .portrait-orbit img {
@@ -350,13 +338,16 @@ h3 {
   object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: inherit;
+  filter: saturate(0.78) contrast(1.05) brightness(0.9);
+  mix-blend-mode: luminosity;
+  opacity: 0.88;
 }
 
 .orbit-ring {
   position: absolute;
-  inset: -36px;
+  inset: -42px;
   border: 1px solid rgba(255, 139, 203, 0.22);
-  border-radius: 50%;
+  border-radius: 44px;
   animation: slow-spin 18s linear infinite;
 }
 
@@ -383,48 +374,44 @@ h3 {
   box-shadow: 0 0 22px var(--blue);
 }
 
-.float-note {
+.hero-plaque {
   position: absolute;
   z-index: 4;
-  width: 168px;
-  padding: 14px 16px;
+  right: -2%;
+  bottom: 11%;
+  width: min(320px, 76vw);
+  padding: 20px;
   border: 1px solid var(--line);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.09);
+  border-radius: 22px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.055)),
+    rgba(16, 8, 30, 0.68);
   box-shadow: 0 18px 46px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(18px);
 }
 
-.float-note span {
+.hero-plaque span {
   display: block;
-  color: var(--soft);
+  color: var(--pink);
   font-size: 0.84rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.float-note strong {
+.hero-plaque strong {
   display: block;
-  margin-top: 4px;
+  margin-top: 7px;
   font-family: "Roboto Slab", Georgia, serif;
-  font-size: 1.08rem;
+  font-size: 1.42rem;
   line-height: 1.15;
 }
 
-.note-one {
-  top: 17%;
-  right: -4%;
-}
-
-.note-two {
-  bottom: 20%;
-  left: -6%;
-}
-
-.note-three {
-  right: 5%;
-  bottom: 7%;
+.hero-plaque p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.45;
 }
 
 .storyline {
@@ -770,21 +757,11 @@ h3 {
     min-height: 440px;
   }
 
-  .float-note {
-    width: 142px;
-    padding: 12px;
-  }
-
-  .note-one {
-    right: 0;
-  }
-
-  .note-two {
-    left: 0;
-  }
-
-  .note-three {
-    right: 14px;
+  .hero-plaque {
+    right: 10px;
+    bottom: 0;
+    width: min(300px, calc(100vw - 44px));
+    padding: 16px;
   }
 
   .project-card {
